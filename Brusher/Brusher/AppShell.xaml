@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:Brusher.Views"
+       Title="Brusher"
+       x:Class="Brusher.AppShell">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#0055FF" />
+                <!--Menu -->
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <!--Titulo -->
+               
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="Black" />
+                <Setter Property="Shell.UnselectedColor" Value="Violet" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Magenta"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="DarkGray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#0055FF"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            
+            
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <!--Color del texto del menu-->
+                <Setter Property="TextColor" Value="#8AB0FB"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                
+            </Style>
+
+            
+        </ResourceDictionary>
+    </Shell.Resources>
+   
+    
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="150">
+            <Image
+            Aspect="AspectFill"
+            HeightRequest="100"
+            HorizontalOptions="FillAndExpand"
+                BackgroundColor="#0055FF"
+            Source="" />
+
+            <Label
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center"
+            VerticalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+
+                            <Span
+                            FontSize="48"
+                            Text="Se Creativo"
+                            TextColor="White" />
+                            <Span Text="&#10;" />
+                            <Span Text="Pinta algo." TextColor="White" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Icon="browser.png" Title="Inicio" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Icon="pencil.png" Route="ColorPalette" ContentTemplate="{DataTemplate local:ColorPalette}" Title="Paletas" />
+        <ShellContent Icon="Palettes.png" Route="ColorComb" ContentTemplate="{DataTemplate local:ColorComb}" Title="Combinaciones" />
+        <ShellContent Icon="Content.png" Title="sobre" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+   
+   
+    
+
+</Shell>

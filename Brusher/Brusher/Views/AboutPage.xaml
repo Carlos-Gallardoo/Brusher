@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Brusher.Views.AboutPage"
+             xmlns:vm="clr-namespace:Brusher.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent"></Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="Bicon.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label  TextColor="Black"  Text="Funcionamiento" FontSize="22"/>
+                <Label  TextColor="Black" Margin="0,20,0,0"  Text="La aplicacion fue diseñada para ser utilizada como un generador de paletas de colores. Las paletas de colores consisten de un total de 5 colores. Para generar una paleta de colores es necesario ingresar la propiedad del color en hexadecimal ej. #FF00. En caso de que el color no sea valido o inexistente no se mostrara dicha paleta de colores." FontSize="16" Padding="0,0,0,0"/>
+                <Label Margin="0,20,0,20"  TextColor="Black"  FontSize="16" Text="Aqui se le proporciona una herramienta util que se puede utilizar para conseguir el hexadecimal de cualquier imagen: "/>
+               
+                <Button  Text="Ir al link" 
+                      
+                        Clicked="Button_Clicked"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+                <Label TextColor="Black" Margin="0,20,0,0"   FontSize="16" FontAttributes="Italic"> Si se busca encontrar mas informacion de la aplicacion porfavor consultar la documentacion</Label>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

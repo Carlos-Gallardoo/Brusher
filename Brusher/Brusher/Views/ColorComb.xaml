@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Brusher.Views.ColorComb"
+             Title="Color combinations"
+              xmlns:viewmodels="clr-namespace:Brusher.ViewModels"
+             >
+    <!--<AbsoluteLayout>
+        <CarouselView x:Name="MyCarousel"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            IndicatorView="indicatorview">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <AbsoluteLayout>
+                        <StackLayout
+                            AbsoluteLayout.LayoutBounds=
+                            "0.5,0.3,AutoSize,AutoSize"
+                            AbsoluteLayout.LayoutFlags=
+                            "PositionProportional"
+                            HorizontalOptions="Center">
+                            <Label
+                                FontSize="Title"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding .}"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            x:Name="indicatorview"
+            AbsoluteLayout.LayoutBounds="0.5,0.95,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IndicatorColor="LightGray"
+            IndicatorSize="10"
+            SelectedIndicatorColor="Black" />
+    </AbsoluteLayout>-->
+
+    <ContentPage.BindingContext>
+        <viewmodels:PalettesViewModel />
+
+    </ContentPage.BindingContext>
+    <AbsoluteLayout>
+        <StackLayout>
+            <Button  HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" CornerRadius="20"  Text="Some Palettes I enjoy"></Button>
+        </StackLayout>
+
+        <CarouselView x:Name="carouselView" BackgroundColor="Pink"
+                  ItemsSource="{Binding Palettes}">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Frame                          
+                               Margin="5"
+                               HeightRequest="500"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand">
+                        <SwipeView>
+
+                            <StackLayout BackgroundColor="White">
+                                  
+                                    <Label Text="{Binding Name}" 
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           HorizontalOptions="Center"
+                                           TextColor="DarkCyan"
+                                           VerticalOptions="Center" />
+                                <Image Source="{Binding ImageUrl}" 
+                                           Aspect="AspectFill"
+                                           HeightRequest="400"
+                                           WidthRequest="400"
+                                           HorizontalOptions="Center" />
+                                <Label Text="{Binding Location}"
+                                           HorizontalOptions="Center" />
+                                <Label Text="{Binding Details}"
+                                           FontAttributes="Italic"
+                                           HorizontalOptions="Center"
+                                          
+                                           LineBreakMode="TailTruncation" />
+                            </StackLayout>
+                        </SwipeView>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+
+       
+    </AbsoluteLayout>
+        
+</ContentPage>

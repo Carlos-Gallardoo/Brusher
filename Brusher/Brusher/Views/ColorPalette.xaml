@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Brusher.Views.ColorPalette"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:Brusher.Models"
+            Title="Color Palettes"
+             >
+    <ScrollView>
+       
+            <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label  FontSize="16" FontAttributes="Bold" x:Name="Line1" Grid.Row="1" Text="Original color" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            <Label  FontSize="16" FontAttributes="Bold"   x:Name="Line2" Grid.Row="2" Text="WithHue"   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label  FontSize="16" FontAttributes="Bold"  x:Name="Line3" Grid.Row="3" Text="WithAlpha"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label  FontSize="16" FontAttributes="Bold"  x:Name="Line4" Grid.Row="4" Text="WithLuminosity" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label  FontSize="16" FontAttributes="Bold"   x:Name="Line5" Grid.Row="5" Text="WithSaturation" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+           
+            <ScrollView >
+                <StackLayout BackgroundColor="white"  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    <Label TextColor="Black" FontSize="22"  Margin="0,0,0,20"  Padding="20" Text="Search for a color in HEX: (ex. #F30C6B)"></Label>
+                   
+                    
+                    <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <pv:PancakeView Padding="10" CornerRadius="15" HeightRequest="90">
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <!--Search Entry-->
+                                <Entry FontSize="16" BackgroundColor="Yellow"  TextColor="Black" PlaceholderColor="Black" x:Name="txtColor" Placeholder="Introduce Hex."></Entry>
+                            </Grid>
+                        </pv:PancakeView>
+                        <pv:PancakeView Grid.Column="1" Padding="10" CornerRadius="15" HeightRequest="90">
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <pv:PancakeView CornerRadius="20,20,20,20">
+                                    <!--Search Button-->
+                                    <Button x:Name="btnBuscar" Clicked="btnBuscar_Clicked" Text="Buscar" TextColor="White" CornerRadius="20" ></Button>
+                                   
+                                </pv:PancakeView>
+                                
+                            </Grid>
+                        </pv:PancakeView>
+
+                    </Grid>
+                  
+                        <!--Search Button-->
+                    <Button x:Name="btnAleatorio" Clicked="btnAleatorio_Clicked" Text="Color Aleatorio" TextColor="White" CornerRadius="20" ></Button>
+                    <Label FontSize="16" FontAttributes="Bold" TextColor="Black"  x:Name="NombreHex" HorizontalOptions="Center"  Text="Color:"></Label>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+      
+
+           
+
+       
+    </ScrollView>
+</ContentPage>
